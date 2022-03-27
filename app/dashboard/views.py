@@ -16,7 +16,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [permissions.IsAuthenticated]
     lookup_field = "customer_id"
-    my_tags = ["Customers"]
+    my_tags = ["Customer"]
 
 
 class PaymentViewSet(viewsets.ModelViewSet):
@@ -31,7 +31,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
         "post",
     ]
     lookup_field = "payment_ref"
-    my_tags = ["Payments"]
+    my_tags = ["Payment"]
 
     def get_serializer_class(self):
         """Set serializer class to create_serializer_class for create"""
@@ -49,7 +49,7 @@ class CustomerPaymentListView(generics.ListAPIView):
     serializer_class = PaymentSerializer
     permission_classes = [permissions.IsAuthenticated]
     lookup_field = "customer_id"
-    my_tags = ["Customer Payments"]
+    my_tags = ["Customer Payment"]
 
     def get_queryset(self):
         """Returns a queryset of payments where customer_id is lookup_field"""
